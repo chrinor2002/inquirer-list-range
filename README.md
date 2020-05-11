@@ -2,15 +2,6 @@
 
 A plugin for [Inquirer](https://github.com/SBoudrias/Inquirer.js). This plugin is intended to allow selecting a subset of choices with forced contiguousness of the items. Users can select the start and end of the range, but they cannot unselect items in the middle. The primary usecase for this is when you want to select A list of items, but want to enforce that users cannot change the order, or remove things from the middle of the selection.
 
-# Demo
-
-```shell
-? Steps (Press ← or → to change anchors, ↑ or ↓ to move anchors, <a> to select all)
- ⎡ step1
- ⎢ step2
- ⎢ step3
-❯⎣ step4
-```
 ![Demo](/demo.png?raw=true)
 
 # Installation
