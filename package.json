@@ -1,0 +1,32 @@
+{
+  "name": "inquirer-list-range",
+  "version": "1.0.0",
+  "description": "List selection with forced contiguous selection for Inquirer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrinor2002/inquirer-list-range.git"
+  },
+  "keywords": [
+    "inquirer",
+    "prompt",
+    "cli",
+    "tty"
+  ],
+  "author": "Chris Reid <chrinor2002@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chrinor2002/inquirer-list-range/issues"
+  },
+  "homepage": "https://github.com/chrinor2002/inquirer-list-range#readme",
+  "dependencies": {
+    "cli-cursor": "^3.1.0",
+    "figures": "^3.2.0",
+    "inquirer": "^7.1.0",
+    "lodash": "^4.17.15",
+    "rxjs": "^6.5.5"
+  }
+}
