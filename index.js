@@ -73,7 +73,7 @@ class ListRangeSelect extends Base {
    */
   setupCheckedChoices() {
     if (!this.opt.default || !_.isArray(this.opt.default)) {
-      this.opt.default = this.opt.choices.map((c) => c.value)
+      this.opt.default = this.opt.choices.realChoices.map((c) => c.value)
     }
 
     if (!this.opt.choices) {
@@ -107,6 +107,8 @@ class ListRangeSelect extends Base {
     this.checkedChoices.sort((a, b) => a.i - b.i);
     this.anchorStart = this.realIndexOfChecked(_.first(this.checkedChoices));
     this.anchorEnd = this.realIndexOfChecked(_.last(this.checkedChoices));
+
+    this.opt.default = null;
   }
 
   /**
