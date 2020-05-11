@@ -6,8 +6,8 @@ A plugin for [Inquirer](https://github.com/SBoudrias/Inquirer.js). This plugin i
 
 # Installation
 
-```
 npm release is pending. For now this is the only way to install:
+```
 npm install chrinor2002/inquirer-list-range#master
 ```
 
