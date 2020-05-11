@@ -25,6 +25,11 @@ class ListRangeSelect extends Base {
   constructor(...args) {
     super(...args);
 
+    this.opt = _.defaults(_.clone(this.opt), {
+      highlight: false,
+      default: []
+    });
+
     if (!this.opt.choices) {
       this.throwParamError('choices');
     }
@@ -457,9 +462,14 @@ class ListRangeSelect extends Base {
         figure,
         choiceName,
         disabledMessage,
+        shouldHighlight,
       } = this.determineChoiceDetails(choice, index, separatorOffset);
       separatorOffset = newOffset;
-      output += `${pointer}${figure} ${choiceName}${disabledMessage}`;
+      let msg = `${choiceName}${disabledMessage}`;
+      if (shouldHighlight) {
+        msg = chalk.cyan(msg);
+      }
+      output += `${pointer}${figure} ${msg}`;
       output += '\n';
     });
     return output.trimRight('\n');
@@ -479,6 +489,7 @@ class ListRangeSelect extends Base {
     let choiceName = choice.name;
     let figure = '';
     let pointer = '';
+    let shouldHighlight = false;
 
     if (isSeperator) {
       separatorOffset++;
@@ -494,6 +505,7 @@ class ListRangeSelect extends Base {
       const checkedIndexOfCurrentChoice = _.findIndex(this.checkedChoices, (v) => v.choice.value === choice.value);
       pointer = this.determinePointerFigure(isPointedAt);
       figure = this.determineChoiceFigure(checkedIndexOfCurrentChoice, this.checkedChoices.length, choice.checked);
+      shouldHighlight = isPointedAt ? this.opt.highlight : false;
     }
 
     return {
@@ -501,7 +513,8 @@ class ListRangeSelect extends Base {
       pointer,
       figure,
       choiceName,
-      disabledMessage
+      disabledMessage,
+      shouldHighlight
     };
   }
 }
